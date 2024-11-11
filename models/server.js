@@ -37,6 +37,11 @@ class Server {
       }
     }
 
+    //  404 handler
+    this.app.use((req, res) => {
+      res.status(404).send('<h1>404 Not Found</h1>');
+    });
+
   }
 
 
