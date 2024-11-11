@@ -10,5 +10,6 @@ var absolutePath = path.resolve();
 const routesDir = path.join(absolutePath, 'routes');
 
 const server = new Server();
+server.disable();
 server.routes(routesDir)
 server.listen();

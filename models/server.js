@@ -1,11 +1,16 @@
 import express from 'express';
 import fs from 'fs'
 import path from 'path';
-import {pathToFileURL} from 'url';
+import { pathToFileURL } from 'url';
 
 class Server {
   constructor() {
     this.app = express();
+  }
+
+  disable() {
+    // remove x-powered-by header
+    this.app.disable('x-powered-by');
   }
 
   async routes(dir) {
@@ -36,7 +41,7 @@ class Server {
 
 
   listen() {
-    this.app.listen(3000, () => { console.log('Server Online: ', 3000); });
+    this.app.listen(3000, () => { console.log('Server Online: ', process.env.PORT || 3000); });
   }
 
 
@@ -44,10 +49,3 @@ class Server {
 
 export default Server;
 
-// tests: C:\Users\wilme\Documents\python\n\testNode\routes\pets
-// Server Online:  3000
-// node:internal/errors:496
-//     ErrorCaptureStackTrace(err);
-//     ^
-
-// Error [ERR_UNSUPPORTED_ESM_URL_SCHEME]: Only URLs with a scheme in: file, data, and node are supported by the default ESM loader. On Windows, absolute paths must be valid file:// URLs. Received protocol 'c:'
