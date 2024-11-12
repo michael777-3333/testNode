@@ -32,6 +32,22 @@ const UsersHttp = {
             res.status(201).json(data)
         }
         )
+    },
+
+    addNewUser: (req, res) => {
+        try {
+            return UsersService.addUser(req, res)
+        } catch (error) {
+            return error
+        }
+    },
+
+    deleteUserById: (req, res) => {
+        try {
+            return UsersService.deleteUser(req, res)
+        } catch (error) {
+            return error
+        }
     }
 }
 export {

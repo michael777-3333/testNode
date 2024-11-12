@@ -8,11 +8,18 @@ class Server {
   constructor() {
     this.app = express();
     this.connect();
+    this.middlewares();
   }
 
   async connect() {
     await connection();
-}
+  }
+  middlewares() {
+    // this.app.use(morgan('short'));
+    this.app.use(express.json());
+    // this.app.use(cors());
+    
+  }
 
   disable() {
     // remove x-powered-by header
