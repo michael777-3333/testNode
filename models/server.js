@@ -2,11 +2,17 @@ import express from 'express';
 import fs from 'fs'
 import path from 'path';
 import { pathToFileURL } from 'url';
+import { connection } from '../database/connection.js';
 
 class Server {
   constructor() {
     this.app = express();
+    this.connect();
   }
+
+  async connect() {
+    await connection();
+}
 
   disable() {
     // remove x-powered-by header
