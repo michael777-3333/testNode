@@ -36,7 +36,7 @@ const UsersService = {
             const updatedUser = await User.findByIdAndUpdate(req.params.id, req.body, { new: true })
 
             if (!updatedUser) return res.status(404).json({ msg: 'User not found' })
-            
+
             return res.status(200).json({ msg: 'User updated' })
 
         } catch (error) {
@@ -45,10 +45,9 @@ const UsersService = {
     },
 
     deleteUser: async (req, res) => {
+        // small midleware to validate the method
+        if (req.method !== 'DELETE') return res.status(405).json({ msg: 'Method not allowed' })
         try {
-            // validate if exist id
-            // const user = await User.findById(req.params.id)
-            // if (!user) return res.status(404).json({ msg: 'User not found' })
             await User.findByIdAndDelete(req.params.id)
             return res.status(200).json({ msg: 'User deleted' })
 

@@ -1,6 +1,7 @@
 import { isValidObjectId } from 'mongoose';
 import User from '../modules/users/users.entity.js'
 
+// validate if id is valid
 export const isValidId = async (req, res, next) => {
     try {
         req.params.id = req.params.id.trim()
@@ -27,3 +28,4 @@ export const existId = async (req, res, next) => {
         return res.status(401).json({ msg: "Unauthorized" })
     }
 }
+

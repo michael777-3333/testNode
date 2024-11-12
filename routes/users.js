@@ -21,7 +21,8 @@ usersRoutes.post('/add', [
 ], UsersHttp.addNewUser)
 
 usersRoutes.put('/:id', [
-
+    validateId.isValidId,
+    validateId.existId
 ], UsersHttp.updateUserById)
 
 usersRoutes.delete('/:id', [
