@@ -10,4 +10,8 @@ usersRoutes.get('/',[
 usersRoutes.get('/filters',[
 
 ],UsersHttp.getUsersfilters)
+
+usersRoutes.post('/',[
+        
+    ],UsersHttp.returnBody)
 export default usersRoutes
