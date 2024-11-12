@@ -42,6 +42,14 @@ const UsersHttp = {
         }
     },
 
+    updateUserById: (req, res) => {
+        try {
+            return UsersService.updateUser(req, res)
+        } catch (error) {
+            return error
+        }
+    },
+
     deleteUserById: (req, res) => {
         try {
             return UsersService.deleteUser(req, res)

@@ -12,13 +12,17 @@ usersRoutes.get('/filters', [
 
 ], UsersHttp.getUsersfilters)
 
-usersRoutes.post('/', [
+usersRoutes.post('/test', [
 
 ], UsersHttp.returnBody)
 
 usersRoutes.post('/add', [
-    validateId.isValidId
+    // validateId.isValidId
 ], UsersHttp.addNewUser)
+
+usersRoutes.put('/:id', [
+
+], UsersHttp.updateUserById)
 
 usersRoutes.delete('/:id', [
     validateId.isValidId,

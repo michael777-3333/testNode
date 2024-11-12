@@ -30,6 +30,20 @@ const UsersService = {
         }
     },
 
+    updateUser: async (req, res) => {
+        try {
+
+            const updatedUser = await User.findByIdAndUpdate(req.params.id, req.body, { new: true })
+
+            if (!updatedUser) return res.status(404).json({ msg: 'User not found' })
+            
+            return res.status(200).json({ msg: 'User updated' })
+
+        } catch (error) {
+            throw error
+        }
+    },
+
     deleteUser: async (req, res) => {
         try {
             // validate if exist id
